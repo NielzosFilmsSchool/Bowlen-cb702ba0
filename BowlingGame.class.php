@@ -2,15 +2,18 @@
 require_once 'ScoreBoard.class.php';
 require_once 'Player.class.php';
 
-class BowlingGame {
-	private $scoreboard;
+class BowlingGame
+{
+    private $scoreboard;
 
-	function __construct($scoreboard) {
-		$this->scoreboard = $scoreboard;
-	}
+    function __construct($scoreboard)
+    {
+        $this->scoreboard = $scoreboard;
+    }
 
-	public function start() {
-		for($r = 1;$r<=10;$r++){
+    public function start()
+    {
+        for($r = 1;$r<=10;$r++){
             echo "Round: $r".PHP_EOL;
             for($p = 0;$p<$this->scoreboard->getNumPlayers();$p++){
                 $player = $this->scoreboard->getCurrentPlayer();
@@ -51,7 +54,7 @@ class BowlingGame {
                 $player->setLastTwoThrows($throws);
 
                 $third_throw = 0;
-                if($r == 10 && $first_throw == 10){
+                if($r == 10 && $first_throw == 10) {
                     echo "It's your turn ".$player->getName().": what was your second throw?".PHP_EOL;
                     $second_throw = intval(readline()); 
                     while($second_throw > 10 || $second_throw < 0 || $second_throw == null) {
@@ -86,5 +89,5 @@ class BowlingGame {
             }
             $this->scoreboard->printStatus();
         }
-	}
+    }
 }
