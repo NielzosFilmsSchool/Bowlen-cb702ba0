@@ -22,7 +22,7 @@ class BowlingGame
 
                 echo "It's your turn ".$player->getName().": what was your first throw?".PHP_EOL;
                 $first_throw = intval(readline());
-                while($first_throw > 10 || $first_throw < 0 || $first_throw == null) {
+                while($first_throw > 10 || $first_throw < 0) {
                     echo "$first_throw is not a correct pin number".PHP_EOL;
                     echo "It's your turn ".$player->getName().": what was your first throw?".PHP_EOL;
                     $first_throw = intval(readline());
@@ -32,7 +32,7 @@ class BowlingGame
                 if($first_throw != 10) {
                     echo "It's your turn ".$player->getName().": what was your second throw?".PHP_EOL;
                     $second_throw = intval(readline()); 
-                    while($second_throw > 10-$first_throw || $second_throw < 0 || $second_throw == null) {
+                    while($second_throw > 10-$first_throw || $second_throw < 0) {
                         echo "$second_throw is not a correct pin number".PHP_EOL;
                         echo "It's your turn ".$player->getName().": what was your second throw?".PHP_EOL;
                         $second_throw = intval(readline());
@@ -57,7 +57,7 @@ class BowlingGame
                 if($r == 10 && $first_throw == 10) {
                     echo "It's your turn ".$player->getName().": what was your second throw?".PHP_EOL;
                     $second_throw = intval(readline()); 
-                    while($second_throw > 10 || $second_throw < 0 || $second_throw == null) {
+                    while($second_throw > 10 || $second_throw < 0) {
                         echo "$second_throw is not a correct pin number".PHP_EOL;
                         echo "It's your turn ".$player->getName().": what was your second throw?".PHP_EOL;
                         $second_throw = intval(readline());
@@ -66,7 +66,7 @@ class BowlingGame
                     if($second_throw == 10) {
                         echo "It's your turn ".$player->getName().": what was your third throw?".PHP_EOL;
                         $third_throw = intval(readline()); 
-                        while($third_throw > 10 || $third_throw < 0 || $third_throw == null) {
+                        while($third_throw > 10 || $third_throw < 0) {
                             echo "$third_throw is not a correct pin number".PHP_EOL;
                             echo "It's your turn ".$player->getName().": what was your third throw?".PHP_EOL;
                             $third_throw = intval(readline());
@@ -76,7 +76,7 @@ class BowlingGame
                 } else if($r == 10 && $first_throw + $second_throw == 10) {
                     echo "It's your turn ".$player->getName().": what was your third throw?".PHP_EOL;
                     $third_throw = intval(readline()); 
-                    while($third_throw > 10 || $third_throw < 0 || $third_throw == null) {
+                    while($third_throw > 10 || $third_throw < 0) {
                         echo "$third_throw is not a correct pin number".PHP_EOL;
                         echo "It's your turn ".$player->getName().": what was your third throw?".PHP_EOL;
                         $third_throw = intval(readline());

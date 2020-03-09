@@ -37,10 +37,12 @@ class ScoreBoard
         $lastTwoThrows = $player->getLastTwoThrows();
         $tempScore = $firstPins + $secondPins;
 
-        if($lastTwoThrows[0] == 10) {
-            $tempScore += $tempScore;
-        } else if($lastTwoThrows[0] + $lastTwoThrows[1] == 10) {
-            $tempScore += $firstPins;
+        if(isset($lastTwoThrows[0]) && isset($lastTwoThrows[1])) {
+            if($lastTwoThrows[0] == 10) {
+                $tempScore += $tempScore;
+            } else if($lastTwoThrows[0] + $lastTwoThrows[1] == 10) {
+                $tempScore += $firstPins;
+            }
         }
 
         $player->setScore($player->getScore()+$tempScore);
