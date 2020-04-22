@@ -24,7 +24,7 @@ class BowlingGame
                 $first_throw = intval(readline());
                 while ($first_throw > 10 || $first_throw < 0) {
                     echo "$first_throw is not a correct pin number" . PHP_EOL;
-                    echo "It's your turn ".$player->getName().": what was your first throw?" . PHP_EOL;
+                    echo "It's your turn " . $player->getName() . ": what was your first throw?" . PHP_EOL;
                     $first_throw = intval(readline());
                 }
 
@@ -43,8 +43,6 @@ class BowlingGame
                     if ($first_throw + $second_throw >= 10) {
                         echo "Spare!" . PHP_EOL;
                     }
-
-                    
                 } else {
                     echo "Strike!" . PHP_EOL;
                     $throws = [$first_throw, 0];
@@ -59,7 +57,7 @@ class BowlingGame
                     $second_throw = intval(readline()); 
                     while ($second_throw > 10 || $second_throw < 0) {
                         echo "$second_throw is not a correct pin number" . PHP_EOL;
-                        echo "It's your turn " . $player->getName().": what was your second throw?" . PHP_EOL;
+                        echo "It's your turn " . $player->getName() . ": what was your second throw?" . PHP_EOL;
                         $second_throw = intval(readline());
                     }
 
