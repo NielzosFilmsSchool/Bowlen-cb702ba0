@@ -4,31 +4,31 @@ require_once 'Player.class.php';
 
 class ScoreBoard
 {
-    private $players = [];
-    private $currentPlayer = 0;
+    private $_players = [];
+    private $_currentPlayer = 0;
 
     public function addPlayer($player)
     {
-        $this->players[] = $player;
+        $this->_players[] = $player;
     } 
 
     public function getCurrentPlayer()
     {
-        $player = $this->players[$this->currentPlayer];
+        $player = $this->_players[$this->_currentPlayer];
         return $player;
     }
 
     public function nextPlayer()
     {
-        $this->currentPlayer++;
-        if($this->currentPlayer >= $this->getNumPlayers()) {
-            $this->currentPlayer = 0;
+        $this->_currentPlayer++;
+        if($this->_currentPlayer >= $this->getNumPlayers()) {
+            $this->_currentPlayer = 0;
         }
     }
     
     public function getNumPlayers()
     {
-        return count($this->players);
+        return count($this->_players);
     }
 
     public function registerPinsDown($firstPins, $secondPins)
@@ -37,11 +37,13 @@ class ScoreBoard
         $lastTwoThrows = $player->getLastTwoThrows();
         $tempScore = $firstPins + $secondPins;
 
-        if(isset($lastTwoThrows[0]) && isset($lastTwoThrows[1])) {
-            if($lastTwoThrows[0] == 10) {
-                $tempScore += $tempScore;
-            } else if($lastTwoThrows[0] + $lastTwoThrows[1] == 10) {
-                $tempScore += $firstPins;
+        if($lastTwoThrows != null) {
+            if(isset($lastTwoThrows[0]) && isset($lastTwoThrows[1])) {
+                if($lastTwoThrows[0] == 10) {
+                    $tempScore += $tempScore;
+                } else if($lastTwoThrows[0] + $lastTwoThrows[1] == 10) {
+                    $tempScore += $firstPins;
+                }
             }
         }
 
@@ -57,7 +59,7 @@ class ScoreBoard
 
     public function printStatus()
     {
-        foreach($this->players as $player){
+        foreach($this->_players as $player){
             echo "Name: ".$player->getName().", Score: ".$player->getScore().PHP_EOL;
         }
     }
@@ -66,7 +68,7 @@ class ScoreBoard
     {
         $max=0;
         $final_player;
-        foreach($this->players as $player){
+        foreach($this->_players as $player){
             if($max < (float)$player->getScore()) {
                 $max = $player->getScore();
                 $final_player = $player;

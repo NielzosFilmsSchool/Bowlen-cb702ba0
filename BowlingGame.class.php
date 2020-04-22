@@ -4,19 +4,19 @@ require_once 'Player.class.php';
 
 class BowlingGame
 {
-    private $scoreboard;
+    private $_scoreboard;
 
     function __construct($scoreboard)
     {
-        $this->scoreboard = $scoreboard;
+        $this->_scoreboard = $scoreboard;
     }
 
     public function start()
     {
         for($r = 1;$r<=10;$r++){
             echo "Round: $r".PHP_EOL;
-            for($p = 0;$p<$this->scoreboard->getNumPlayers();$p++){
-                $player = $this->scoreboard->getCurrentPlayer();
+            for($p = 0;$p<$this->_scoreboard->getNumPlayers();$p++){
+                $player = $this->_scoreboard->getCurrentPlayer();
                 $throws;
                 $pins;
 
@@ -50,7 +50,7 @@ class BowlingGame
                     $throws = [$first_throw, 0];
                     $pins = $first_throw;
                 }
-                $this->scoreboard->registerPinsDown($first_throw, $second_throw);
+                $this->_scoreboard->registerPinsDown($first_throw, $second_throw);
                 $player->setLastTwoThrows($throws);
 
                 $third_throw = 0;
@@ -72,7 +72,7 @@ class BowlingGame
                             $third_throw = intval(readline());
                         }
                     }
-                    $this->scoreboard->registerPinsDownLastRound($second_throw + $third_throw);
+                    $this->_scoreboard->registerPinsDownLastRound($second_throw + $third_throw);
                 } else if($r == 10 && $first_throw + $second_throw == 10) {
                     echo "It's your turn ".$player->getName().": what was your third throw?".PHP_EOL;
                     $third_throw = intval(readline()); 
@@ -82,12 +82,12 @@ class BowlingGame
                         $third_throw = intval(readline());
                     }
 
-                    $this->scoreboard->registerPinsDownLastRound($third_throw);
+                    $this->_scoreboard->registerPinsDownLastRound($third_throw);
                 }
 
-                $this->scoreboard->nextPlayer();
+                $this->_scoreboard->nextPlayer();
             }
-            $this->scoreboard->printStatus();
+            $this->_scoreboard->printStatus();
         }
     }
 }

@@ -3,11 +3,6 @@ require_once 'Player.class.php';
 require_once 'BowlingGame.class.php';
 require_once 'ScoreBoard.class.php';
 
-/**
- * spare = current score + next throw
- * strike = current score + next two throws
- */
-
 echo "Welcome to the bowling game! Please enter your players 'name1,name2' :".PHP_EOL;
 $player_names = explode(",", readline());
 

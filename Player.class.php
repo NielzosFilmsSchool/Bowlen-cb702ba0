@@ -2,37 +2,37 @@
 
 class Speler
 {
-    private $score = 0;
-    private $lastTwoThrows;
-    private $name;
+    private $_score = 0;
+    private $_lastTwoThrows;
+    private $_name;
 
     function __construct($name)
     {
-        $this->name = $name;
+        $this->_name = $name;
     }
 
     function getName()
     {
-        return $this->name;
+        return $this->_name;
     }
 
     function setScore($value)
     {
-        $this->score = $value;
+        $this->_score = $value;
     }
 
     function getScore()
     {
-        return $this->score;
+        return $this->_score;
     }
 
     function setLastTwoThrows($throws)
     {
-        $this->lastTwoThrows = $throws;
+        $this->_lastTwoThrows = $throws;
     }
 
     function getLastTwoThrows()
     {
-        return $this->lastTwoThrows;
+        return $this->_lastTwoThrows;
     }
 }
